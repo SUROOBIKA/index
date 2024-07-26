@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibrant Color Generator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            transition: background- 0.5s ease;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); 
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        #color-box {
+            width: 200px;
+            height: 200px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+       #color-code {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            color: #333;
+            
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Vibrant Color Generator</h1>
+        <div id="color-box"></div>
+        <p id="color-code"></p>
+        <button onclick="generateColor()">Generate New Color</button>
+    </div>
+    <script>
+        function generateColor() {
+            const randomColor = Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+            document.getElementById("color-box").style.backgroundColor = "#" + randomColor;
+            document.getElementById("color-code").innerText = "#" + randomColor;
+            document.body.style.background = `linear-gradient(135deg, #${randomColor} 0%, #c3cfe2 100%)`;
+        }
+        generateColor();
+    </script>
+</body>
+</html>
